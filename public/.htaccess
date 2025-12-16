@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Carpeta base relativa a htdocs
+RewriteBase /dashboard-ventas/public/
+
+# Si el archivo o directorio existe, se sirve directamente
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Si no existe, redirigir todo a index.php
+RewriteRule ^ index.php [L]

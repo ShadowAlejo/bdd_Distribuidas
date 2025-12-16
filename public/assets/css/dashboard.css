@@ -1,0 +1,476 @@
+/* public/assets/css/dashboard.css */
+
+:root {
+    --bg-body: #0f172a;
+    --bg-panel: #020617;
+    --bg-sidebar: #020617;
+    --bg-card: #020617;
+    --accent: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.15);
+    --text-main: #e5e7eb;
+    --text-soft: #9ca3af;
+    --border-subtle: #1f2937;
+    --danger: #f97373;
+    --radius-s: 0.4rem;
+    --radius-m: 0.6rem;
+    --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.65);
+}
+
+/* Layout general */
+
+.app-header {
+    background: linear-gradient(90deg, #020617, #0f172a);
+    color: var(--text-main);
+    padding: 1.1rem 1.8rem;
+    box-shadow: 0 1px 0 rgba(15, 23, 42, 0.7);
+    border-bottom: 1px solid #111827;
+}
+
+.app-title {
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+}
+
+.app-main {
+    padding: 1.4rem 1.8rem;
+    background: radial-gradient(circle at top left, #020617 0, #020617 40%, #020617 100%);
+    min-height: calc(100vh - 64px);
+}
+
+/* Grid principal */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 1.4rem;
+    max-width: 1240px;
+    margin: 0 auto;
+    min-width: 0;
+}
+
+/* Sidebar */
+
+.dashboard-sidebar {
+    background: radial-gradient(circle at top, #020617 0, #020617 60%);
+    border-radius: var(--radius-m);
+    padding: 1rem 1.1rem 1.2rem;
+    color: var(--text-main);
+    border: 1px solid rgba(31, 41, 55, 0.9);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    min-width: 0;
+}
+
+.dashboard-sidebar h2 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-soft);
+    margin-bottom: 0.75rem;
+    min-width: 0;
+}
+
+#selector-ciudad {
+    width: 100%;
+    margin-bottom: 1.05rem;
+    padding: 0.45rem 0.65rem;
+    border-radius: var(--radius-s);
+    border: 1px solid #1e293b;
+    background: #020617;
+    color: var(--text-main);
+    outline: none;
+    font-size: 0.9rem;
+}
+
+#selector-ciudad:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5);
+}
+
+/* Botones de tabs */
+
+.dashboard-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    min-width: 0;
+}
+
+.tab-button {
+    padding: 0.55rem 0.75rem;
+    border-radius: var(--radius-s);
+    border: 1px solid transparent;
+    background: rgba(15, 23, 42, 0.7);
+    color: var(--text-soft);
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease,
+        transform 0.08s ease;
+}
+
+.tab-button:hover {
+    border-color: rgba(55, 65, 81, 0.9);
+    color: var(--text-main);
+    transform: translateY(-1px);
+}
+
+.tab-button.is-active {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Panel de contenido */
+
+.dashboard-content {
+    background: radial-gradient(circle at top left, #020617 0, #020617 55%, #020617 100%);
+    border-radius: var(--radius-m);
+    padding: 1.2rem 1.4rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(30, 64, 175, 0.5);
+    color: var(--text-main);
+    min-width: 0;
+    min-width: 0;
+}
+
+.dashboard-content h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+    min-width: 0;
+}
+
+.dashboard-content > p {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    margin-bottom: 0.9rem;
+    min-width: 0;
+}
+
+/* Tabs internos */
+
+.tab-content {
+    display: none;
+    margin-top: 0.4rem;
+}
+
+.tab-content.is-active {
+    display: block;
+}
+
+/* Tarjetas / secciones */
+
+.ventas-ciudad,
+.ventas-global {
+    display: grid;
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+    gap: 1.1rem;
+    align-items: flex-start;
+}
+
+.ventas-global {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 900px) {
+    .ventas-ciudad,
+    .ventas-global {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Formulario de ventas */
+
+.ventas-form,
+.filtros-globales {
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: var(--radius-m);
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border-subtle);
+    display: grid;
+    gap: 0.7rem;
+}
+
+.ventas-form label,
+.filtros-globales label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    gap: 0.22rem;
+}
+
+.ventas-form input,
+.filtros-globales input,
+.filtros-globales select {
+    padding: 0.4rem 0.55rem;
+    border-radius: var(--radius-s);
+    border: 1px solid #1f2937;
+    background: #020617;
+    color: var(--text-main);
+    font-size: 0.86rem;
+    outline: none;
+}
+
+.ventas-form input:focus,
+.filtros-globales input:focus,
+.filtros-globales select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5);
+}
+
+.ventas-form-actions,
+.filtros-globales-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+}
+
+/* Botones genéricos */
+
+button {
+    font: inherit;
+}
+
+.btn-primary,
+.ventas-form button[type="submit"],
+.filtros-globales button[type="submit"] {
+    padding: 0.45rem 0.9rem;
+    border-radius: var(--radius-s);
+    border: none;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    color: #020617;
+    cursor: pointer;
+    font-size: 0.86rem;
+    font-weight: 500;
+    transition: transform 0.08s ease, box-shadow 0.12s ease, filter 0.12s ease;
+    box-shadow: 0 8px 18px rgba(8, 47, 73, 0.8);
+}
+
+.btn-secondary,
+.ventas-form button[type="button"],
+.filtros-globales button[type="button"] {
+    padding: 0.45rem 0.8rem;
+    border-radius: var(--radius-s);
+    border: 1px solid #4b5563;
+    background: rgba(15, 23, 42, 0.9);
+    color: var(--text-soft);
+    cursor: pointer;
+    font-size: 0.84rem;
+}
+
+.btn-primary:hover,
+.ventas-form button[type="submit"]:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Tabla de datos */
+
+.tabla-ventas {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.96);
+    border: 1px solid var(--border-subtle);
+}
+
+.tabla-ventas thead {
+    background: rgba(15, 23, 42, 0.98);
+}
+
+.tabla-ventas th,
+.tabla-ventas td {
+    padding: 0.45rem 0.7rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tabla-ventas th {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+    border-bottom: 1px solid #1f2937;
+}
+
+.tabla-ventas tbody tr:nth-child(even) {
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.tabla-ventas tbody tr:nth-child(odd) {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.tabla-ventas tbody tr:hover {
+    background: rgba(15, 23, 42, 1);
+}
+
+.tabla-ventas td {
+    color: var(--text-main);
+}
+
+/* Contenedor scrolleable para tablas (solo horizontal) */
+.tabla-scroll {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-m);
+}
+
+/* Tabla: permite que se haga scroll horizontal cuando sea necesario */
+.tabla-scroll .tabla-ventas {
+    min-width: 900px; /* ajusta según tus columnas */
+}
+
+/* Opcional: barra de scroll más discreta (Chrome/Edge) */
+.tabla-scroll::-webkit-scrollbar {
+    height: 10px;
+}
+.tabla-scroll::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.25);
+    border-radius: 999px;
+}
+.tabla-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Mejora: sticky header para tablas largas */
+.tabla-scroll .tabla-ventas thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: rgba(15, 23, 42, 0.98);
+}
+
+/* Botones dentro de tabla */
+
+.btn-editar,
+.btn-eliminar {
+    padding: 0.25rem 0.55rem;
+    border-radius: 999px;
+    border: none;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.btn-editar {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+}
+
+.btn-eliminar {
+    background: rgba(248, 113, 113, 0.12);
+    color: var(--danger);
+}
+
+/* Responsivo */
+
+@media (max-width: 900px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .app-main {
+        padding: 1rem;
+    }
+
+    .dashboard-content {
+        padding: 1rem;
+    }
+
+    .tabla-ventas {
+        font-size: 0.8rem;
+    }
+}
+
+/* Barra de filtros*/
+.filters-bar {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 0.9rem;
+    align-items: end;
+
+    padding: 1rem 1.1rem;
+    border-radius: var(--radius-m);
+    border: 1px solid var(--border-subtle);
+    background: rgba(15, 23, 42, 0.92);
+    margin-bottom: 1rem;
+    overflow: hidden; /* evita que algún hijo empuje el contenedor */
+}
+
+.filter-group {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.filter-group label {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+}
+
+.filter-group input,
+.filter-group select {
+    height: 38px;
+    padding: 0.45rem 0.6rem;
+    border-radius: var(--radius-s);
+    border: 1px solid #1f2937;
+    background: #020617;
+    color: var(--text-main);
+    outline: none;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.45);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: flex-end;
+    white-space: nowrap;
+}
+
+/* Responsive: en pantallas medianas baja a 2 columnas */
+@media (max-width: 1100px) {
+    .filters-bar {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    }
+
+    .filter-actions {
+        grid-column: 1 / -1;
+        display: flex;
+        gap: 0.6rem;
+        justify-content: flex-end;
+        flex-wrap: wrap; /* si es estrecho, baja */
+    }
+}
+
+/* Responsive: en móvil 1 columna */
+@media (max-width: 560px) {
+    .filters-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-actions {
+        justify-content: stretch;
+        flex-direction: column;
+    }
+}

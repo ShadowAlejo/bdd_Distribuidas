@@ -1,0 +1,4 @@
+# logs/app.log
+# Archivo inicialmente vacío. El sistema escribirá aquí los errores de conexión u otros, más adelante.
+[2025-12-10 18:21:53] Error de conexión [bdd_quito]: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
+[2025-12-10 18:22:00] Error de conexión [bdd_quito]: SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión
